@@ -94,6 +94,15 @@ DATABASES = {
 }
 
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('redis://redis', 6379)]
+        }
+    }
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -129,7 +138,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'staticroot/'
+STATIC_ROOT = BASE_DIR / 'staticroot'
 STATICFILES_DIRS =[
     BASE_DIR / 'static'
 ]
